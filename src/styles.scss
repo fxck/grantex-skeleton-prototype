@@ -1,1 +1,420 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'normalize.css/normalize';
+
+// global
+html {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+// utility
+.u-grid {
+  display: grid;
+  height: 100%;
+}
+
+.u-grid--halfs {
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.u-grid--fourths {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.u-grid--align-center {
+  align-items: center;
+}
+
+.u-grid--gap-20 {
+  gap: 40px;
+}
+
+.u-grid--gap-40 {
+  gap: 40px;
+}
+
+.u-grid--gap-60 {
+  gap: 60px;
+}
+
+.u-grid--gap-80 {
+  gap: 80px;
+}
+
+.u-grid--gap-140 {
+  gap: 140px;
+}
+
+.u-wrap {
+  display: block;
+  max-width: 1200px;
+  height: 100%;
+  // width: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.u-wrap--wide {
+  max-width: 1480px;
+}
+
+.u-text-align--right {
+  text-align: right;
+}
+
+.u-text-align--center {
+  text-align: center;
+}
+
+// components
+.c-app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  display: block;
+  width: 100%;
+  padding: 24px 0;
+
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+}
+
+  .c-app-bar_logo {
+    display: block;
+    max-width: 70px;
+    margin-bottom: -10px;
+  }
+
+.c-menu {
+  position: relative;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      display: block;
+      padding: 0 18px;
+
+      color: inherit;
+      // border-radius: 8px;
+      line-height: 36px;
+      border: 2px solid transparent;
+
+      text-decoration: none;
+      font-weight: 500;
+
+      transition: background 800ms;
+
+      &:hover {
+        background: #23c3f436;
+      }
+    }
+
+
+    > li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 12px;
+    }
+
+    .material-icons-outlined {
+      vertical-align: middle;
+    }
+
+  }
+
+
+}
+
+  .c-menu_expand-link {
+    border-color: #404041 !important;
+
+    .material-icons-outlined {
+      transition: transform 400ms;
+    }
+
+    &.is-open {
+      .material-icons-outlined {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .c-menu_pop {
+    position: absolute;
+    top: 50px;
+    left: 0;
+
+    background: #fff;
+    box-shadow: 0 0 30px rgba(85, 85, 85, 0.431);
+    padding: 18px;
+
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 400ms;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: initial;
+    }
+  }
+
+  .c-menu_pop-section {
+    padding-bottom: 24px;
+
+    &.is-last {
+      padding-bottom: 0;
+    }
+  }
+
+  .c-menu_pop-title {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    opacity: 0.5;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 18px;
+    text-transform: uppercase;
+  }
+
+.c-button {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  padding: 0 24px;
+  line-height: 50px;
+
+  border: 2px solid transparent;
+  background: transparent;
+  color: #000;
+  font-weight: 500;
+  background: #23c3f41a;
+  // border-radius: 16px;
+
+  .material-icons-outlined {
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-top: -4px;
+  }
+}
+
+.c-button--stroked {
+  border-color: #23c3f4;
+  color: #23c3f4;
+  background: transparent;
+}
+
+.c-button--white {
+  color: #fff;
+}
+
+.c-button--full {
+  width: 100%;
+  padding: 0;
+}
+
+.c-stat {
+  margin: 20px 0;
+  // max-width: 300px;
+}
+
+  .c-stat_num {
+    font-size: 90px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2em;
+    color: #003d51;
+  }
+
+  .c-stat_num-suffix {
+    font-size: 30px;
+    opacity: 0.5;
+  }
+
+  .c-state_desc {
+    text-transform: uppercase;
+    display: block;
+    opacity: 0.8;
+    font-weight: 500;
+    font-size: 14px;
+    color: #115266;
+  }
+
+
+.c-service-card {
+  position: relative;
+
+  display: block;
+  max-width: 360px;
+  padding: 12px;
+  margin: 6px;
+  overflow: hidden;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+    border: 2px solid #404041;
+
+    pointer-events: none;
+
+    background: #23c3f436;
+    opacity: 0;
+
+    transition: opacity 600ms;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+}
+
+.c-service-card--grants {
+}
+
+  .c-service-card_title {
+
+    margin: 0;
+    font-size: 20px;
+    padding-bottom: 6px;
+  }
+
+  .c-service-card_desc {
+    margin: 0;
+    line-height: 1.7em;
+
+    color: #404041;
+
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+// pages
+.p-home {
+
+}
+
+  .p-home_section {
+    padding: 120px 0;
+  }
+
+  .p-home_section--references {
+    background: #f5f5f5;
+  }
+
+  .p-home_section--intro {
+    height: 100vh;
+    position: relative;
+    padding: 0;
+    min-height: 900px;
+    max-height: 1400px;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      display: block;
+      width: 50%;
+
+      background: #23c3f417;
+
+      pointer-events: none;
+    }
+
+    // &::before {
+    //   background: url(/assets/bg.jpeg) center center no-repeat;
+    //   background-size: cover;
+    //   opacity: 1;
+    // }
+
+    &::after {
+      z-index: 1;
+    }
+  }
+
+  .p-home_section-subtitle {
+    font-size: 36px;
+    line-height: 2em;
+    color: #404041;
+  }
+
+  .p-home_reference-logo-img {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .p-home_content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+  }
+
+  .p-home_claim {
+    // padding-top: 48px;
+    font-size: 58px;
+    line-height: 1.4em;
+  }
+
+  .p-home_desc {
+    font-size: 20px;
+    line-height: 2.1em;
+    max-width: 610px;
+    margin: 0;
+  }
+
+  .p-home_stats {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .p-home_cta {
+    padding-top: 55px;
+
+    .c-button {
+      margin: 10px 0;
+      padding: 0 70px;
+    }
+  }
+
+  .p-home_cta-card {
+    // background: #f2f2f2;
+    // border-radius: 8px;
+  }
+
+  .p-home_desc-service-link {
+    color: #17c1f5;
+    font-weight: 500;
+    background: #23c3f436;
+    padding: 3px 6px;
+    text-decoration: none;
+    // border-radius: 4px;
+  }

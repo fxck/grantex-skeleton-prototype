@@ -1,0 +1,7 @@
+app:
+  build:
+    base: [ nodejs@16 ]
+    build:
+      - npm i
+      - npm run build
+    deploy: [ 'dist/grantex/~' ]
